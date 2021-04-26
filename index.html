@@ -1,24 +1,35 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Binary Search</title>
-</head>
-
-<body>
-  <div class="main">
-    <h1>Бинарный поиск</h1>
-    <p>Загадайте число от 0 до 100</p>
-    <button>Загадал, начинаем!</button>
-  </div>
-  <style>
-    .main {
-      max-width: 16rem;
-      margin: 16rem auto;
-      text-align: center;
-    }
-  </style>
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Search</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Бинарный поиск</h1>
+      <div id="inner">
+        <p>Загадайте число от 0 до 100</p>
+        <div class="buttons">
+          <button onclick="binarySearch(100, 100, 0)">
+            Загадал, начинаем!
+          </button>
+        </div>
+      </div>
+      <div id="error"></div>
+    </div>
+    <style>
+      .main {
+        max-width: 26em;
+        margin: 16rem auto;
+        text-align: center;
+      }
+      #error {
+        font-style: italic;
+        color: rgb(100, 100, 100);
+        font-size: 75%;
+      }
+    </style>
+    <script src="app.js"></script>
+  </body>
 </html>
