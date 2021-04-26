@@ -29,7 +29,7 @@ function binarySearchEnd(result, step) {
 }
 function binarySearchErr() {
   document.getElementById("inner").innerHTML = `
-  <p>
+  <p class="error">
     Что то пошло не так...
     <br>Кол-во шагов не может превышать 7.
   </p>
