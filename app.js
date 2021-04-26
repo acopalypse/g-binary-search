@@ -24,7 +24,7 @@ function binarySearch(number, index, step, side) {
     <p>Число ${number}</p>
     <div class="buttons">
       <button onclick="binarySearch(${number}, ${index}, ${step}, 0)"> < Меньше</button>
-      <button onclick="binarySearchEnd(${number}, ${step}, 0)">Угадал!</button>
+      <button onclick="binarySearchEnd(${number}, ${step})">Угадал!</button>
       <button onclick="binarySearch(${
         number + index
       }, ${index}, ${step}, 1)">Больше > </button>
@@ -33,7 +33,7 @@ function binarySearch(number, index, step, side) {
   }
 }
 
-function binarySearchEnd(num, step, err) {
+function binarySearchEnd(num, step) {
   document.getElementById("inner").innerHTML = `
   <p>Загаданное число ${num} стало известно спустя ${step} шаг(а, ов)</p>
   <div class="buttons">
