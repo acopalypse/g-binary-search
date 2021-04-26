@@ -1,7 +1,5 @@
-function binarySearch(number, index, step) {
-  if (number == 100 && step == 7) {
-    binarySearchEnd(100, 8, 1);
-  } else if (step > 6 || number < 2) {
+function binarySearch(number, index, step, side) {
+  if (step > 6 || number < 2) {
     document.getElementById("error").innerHTML = `
       <p>
         Что то пошло не так...<br> Кол-во шагов не может превышать 7.
@@ -10,22 +8,26 @@ function binarySearch(number, index, step) {
     `;
     document.getElementById("inner").innerHTML = `
       <div class="buttons">
-        <button onclick="binarySearch(100, 100, 0)">Повторить</button>
+        <button onclick="binarySearch(100, 100, 0, 0)">Повторить</button>
       </div>
     `;
   } else {
-    index = Math.ceil(index / 2);
+    if (side) {
+      index = Math.floor(index / 2);
+    } else {
+      index = Math.ceil(index / 2);
+    }
     number -= index;
     step += 1;
     document.getElementById("inner").innerHTML = `
     <p>Шаг ${step}</p>
     <p>Число ${number}</p>
     <div class="buttons">
-      <button onclick="binarySearch(${number}, ${index}, ${step})"> < Меньше</button>
+      <button onclick="binarySearch(${number}, ${index}, ${step}, 0)"> < Меньше</button>
       <button onclick="binarySearchEnd(${number}, ${step}, 0)">Угадал!</button>
       <button onclick="binarySearch(${
         number + index
-      }, ${index}, ${step})">Больше > </button>
+      }, ${index}, ${step}, 1)">Больше > </button>
     </div>`;
     document.getElementById("error").innerHTML = "";
   }
@@ -35,13 +37,6 @@ function binarySearchEnd(num, step, err) {
   document.getElementById("inner").innerHTML = `
   <p>Загаданное число ${num} стало известно спустя ${step} шаг(а, ов)</p>
   <div class="buttons">
-    <button onclick="binarySearch(100, 100, 0)">Повторить</button>
+    <button onclick="binarySearch(100, 100, 0, 0)">Повторить</button>
   </div>`;
-  if (err == 1) {
-    document.getElementById("error").innerHTML = `
-      <p>
-        PS. Я так и не допер, как выполнить поиск 100 за 7 шагов :)
-      </p>
-    `;
-  }
 }
